@@ -1,21 +1,48 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { Fragment } from 'react';
+import { ThemeProvider } from 'styled-components';
+import Sticky from 'react-stickynode';
+import { DrawerProvider } from 'common/src/contexts/DrawerContext';
+import { saasModernTheme } from 'common/src/theme/saasModern';
+import { ResetCSS } from 'common/src/assets/css/style';
+import {
+  GlobalStyle,
+  ContentWrapper,
+} from '../containers/SaasModern/sassModern.style';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import BannerSection from '../containers/SaasModern/Banner';
+import Navbar from '../containers/SaasModern/Navbar';
+import WorkingProcessSection from '../containers/SaasModern/WorkingProcess';
+import PricingSection from '../containers/SaasModern/Pricing';
+import InfoSection from '../containers/SaasModern/Info';
+import FeatureSection from '../containers/SaasModern/Feature';
+import UpdateScreen from '../containers/SaasModern/UpdateScreen';
+import Footer from '../containers/SaasModern/Footer';
+import SEO from '../components/seo';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export default () => {
+  return (
+    <ThemeProvider theme={saasModernTheme}>
+      <Fragment>
+        <SEO title="SaaS Modern | A react next landing page" />
 
-export default IndexPage
+        <ResetCSS />
+        <GlobalStyle />
+
+        <ContentWrapper>
+          <Sticky top={0} innerZ={9999} activeClass="sticky-nav-active">
+            <DrawerProvider>
+              <Navbar />
+            </DrawerProvider>
+          </Sticky>
+          <BannerSection />
+          <WorkingProcessSection />
+          <InfoSection />
+          <FeatureSection />
+          <UpdateScreen />
+          <PricingSection />
+          <Footer />
+        </ContentWrapper>
+      </Fragment>
+    </ThemeProvider>
+  );
+};
