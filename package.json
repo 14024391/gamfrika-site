@@ -14,7 +14,7 @@
     "gatsby-plugin-react-helmet": "^3.1.23",
     "gatsby-plugin-sharp": "^2.4.9",
     "gatsby-source-filesystem": "^2.1.51",
-    "gatsby-source-wordpress": "^3.1.66",
+    "gatsby-source-wordpress": "^4.0.8",
     "gatsby-transformer-json": "^2.2.27",
     "gatsby-transformer-sharp": "^2.3.18",
     "gatsby-wpgraphql-inline-images": "^0.2.5",
